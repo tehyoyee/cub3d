@@ -15,7 +15,6 @@ int	is_white_line(char *line)
 	return (1);
 }
 
-
 int	parse_dir(t_map_info *map_info, char *line)
 {
 	if (!ft_strncmp(line, "EA", 2))
@@ -38,16 +37,12 @@ int	init_config(t_map_info *map_info)
 	i = 0;
 	while (1)
 	{
-		if (is_white_line(map_info->map[i]))
-		{
+		while (is_white_line(map_info->map[i]))
 			i++;
-			continue ;
-		}
 		if (map_info->map[i][0] == 'R')
 			parse_dis_size(map_info->map[0], map_info);
 		else if (parse_dir(map_info, map_info->map[i]))
 		{
-
 		}
 		else if (map_info->map[i][0] == 'S')
 			parse_S(map_info, map_info->map[i]);
@@ -98,6 +93,16 @@ int	parse_map(t_map_info *map_info, int idx)
 	return (1);
 }
 
+void	parse_start_loc(t_map_info *map_info)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (map_info->)
+}
+
 void	init_map_info(t_map_info *map_info, int fd)
 {
 	int		i;
@@ -116,4 +121,5 @@ void	init_map_info(t_map_info *map_info, int fd)
 	map_info->map = ft_split(map_info->map_line, '\n');
 	i = init_config(map_info);
 	parse_map(map_info, i);
+	parse_start_loc(map_info);
 }

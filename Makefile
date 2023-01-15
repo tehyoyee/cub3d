@@ -20,6 +20,7 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 		memory_utils.c \
 		parse_utils.c \
 		parse_config.c \
+		check_map.c \
 		)
 
 OBJS = $(SRCS:.c=.o)

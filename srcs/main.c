@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "cub3D.h"
-#include <stdio.h>
 
 int	main(int argc, char *argv[])
 {
@@ -37,6 +36,9 @@ int	main(int argc, char *argv[])
 	for (int i = 0; i < 3; i++)
 		printf("ceil[%d] = %d\n", i, map_info.texture.ceil[i]);
 	printf("Map size : w=%d h=%d\n", map_info.width, map_info.height);
+
+
+	// check_map(&map_info);
 	// system("leaks cub3D");
 	// map_info.mlx = mlx_init();
 	// map_info.win = mlx_new_window(map_info.mlx, \

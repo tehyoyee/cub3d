@@ -39,8 +39,8 @@ typedef struct s_map_info {
 	t_dis_size	dis_size;
 	t_texture	texture;
 	t_player	player;
-	// void	*mlx;
-	// void	*win;
+	void	*mlx;
+	void	*win;
 	int		width;
 	int		height;
 	char	**map;
@@ -74,8 +74,8 @@ void	free_arr(char *arr);
 
 //		parse_utils
 
-int	is_space(char c);
-int	count_arr_2(char **arr);
+int		is_space(char c);
+int		count_arr_2(char **arr);
 
 //		parse_config
 void	parse_dis_size(char *line, t_map_info *map_info);
@@ -83,6 +83,10 @@ void	parse_walls(t_texture *texture, int wall_type, char *line);
 void	parse_F(t_map_info *map_info, char *line);
 void	parse_C(t_map_info *map_info, char *line);
 void	parse_S(t_map_info *map_info, char *line);
+
+//		check_map
+
+void	check_map(t_map_info *map_info);
 
 
 
