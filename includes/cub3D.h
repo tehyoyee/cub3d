@@ -18,6 +18,18 @@
 # define SO		2
 # define NO		3
 
+typedef struct s_node
+{
+	int	*content;
+	struct s_node	*next;
+}				t_node;
+
+typedef struct s_queue
+{
+	t_node	*front;
+	t_node	*back;
+}				t_queue;
+
 typedef struct s_texture {
 	char	*walls[4];
 	char	*item;
@@ -41,7 +53,8 @@ typedef struct s_map_info {
 	t_player	player;
 	void	*mlx;
 	void	*win;
-	int		width;
+//	int		width; 필요없음
+	int		*widths;
 	int		height;
 	char	**map;
 	char	*map_line;
@@ -52,11 +65,13 @@ typedef struct s_map_info {
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		*new_arr(int a, int b);
 
 //		parse
 
 void	init_map_info(t_map_info *map_info, int fd);
 char	**ft_split(char const *s, char c);
+char	**ft_split_nl(char const *s, char c);
 
 //		check & error
 
@@ -78,16 +93,19 @@ int		is_space(char c);
 int		count_arr_2(char **arr);
 
 //		parse_config
-void	parse_dis_size(char *line, t_map_info *map_info);
-void	parse_walls(t_texture *texture, int wall_type, char *line);
-void	parse_F(t_map_info *map_info, char *line);
-void	parse_C(t_map_info *map_info, char *line);
-void	parse_S(t_map_info *map_info, char *line);
+void	parse_dis_size(t_map_info *map_info, char *line, int idx);
+void	parse_walls(t_texture *texture, int wall_type, char *line, int idx);
+void	parse_F(t_map_info *map_info, char *line, int idx);
+void	parse_C(t_map_info *map_info, char *line, int idx);
+void	parse_S(t_map_info *map_info, char *line, int idx);
 
 //		check_map
 
 void	check_map(t_map_info *map_info);
-
+int	q_empty(t_queue *q);
+void	q_append(t_queue *q, int *e);
+int*	q_pop(t_queue *q);
+void	q_clear(t_queue *q);
 
 
 #endif
