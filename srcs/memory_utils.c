@@ -1,27 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   memory_utils.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/29 21:28:54 by taehykim          #+#    #+#             */
+/*   Updated: 2023/01/29 21:28:55 by taehykim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
-
-// char	*ft_strdup(const char *s1)
-// {
-// 	int		i;
-// 	char	*arr;
-
-// 	i = 0;
-// 	while (s1[i])
-// 	{
-// 		i++;
-// 	}
-// 	arr = (char *)malloc(sizeof(char) * i + 1);
-// 	if (!arr)
-// 		return (NULL);
-// 	arr[i] = '\0';
-// 	i--;
-// 	while (i >= 0)
-// 	{
-// 		arr[i] = s1[i];
-// 		i--;
-// 	}
-// 	return (arr);
-// }
 
 void	free_arr_2(char **arr)
 {
@@ -41,4 +30,18 @@ void	free_arr(char *arr)
 {
 	if (arr)
 		free(arr);
+}
+
+void	free_double_int(int **arr, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+	return ;
 }

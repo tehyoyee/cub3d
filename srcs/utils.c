@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/29 21:29:50 by taehykim          #+#    #+#             */
+/*   Updated: 2023/02/01 19:47:03 by eunjilee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -77,13 +89,23 @@ int	ft_atoi(const char *str)
 	return (get_answer(str, sign));
 }
 
-int *new_arr(int a, int b)
+char	*ft_strdup_except_nl(const char *s1)
 {
-	int *arr = (int *)malloc(sizeof(int) * 2);
-	if (!arr) {
-		exit_error("malloc failed\n");
+	int		i;
+	char	*arr;
+
+	i = 0;
+	while (s1[i])
+		i++;
+	arr = (char *)malloc(sizeof(char) * i);
+	if (!arr)
+		return (NULL);
+	arr[i - 1] = '\0';
+	i -= 2;
+	while (i >= 0)
+	{
+		arr[i] = s1[i];
+		i--;
 	}
-	arr[0] = a;
-	arr[1] = b;
-	return arr;
+	return (arr);
 }
