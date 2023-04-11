@@ -1,6 +1,6 @@
 # cub3d
 ## 42Seoul Project
-![cub3d play image](https://github.com/tehyoyee/cub3d/cub3d_img.png)
+![cub3d play image](./cub3d_img.png)
 <br>
 <br>
 레이캐스팅을 이용한 3D 그래픽 게임 구현<br>
