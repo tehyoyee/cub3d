@@ -1,5 +1,5 @@
 # cub3d ; 3d Graphics Game
-## 42Seoul Project
+## 42Seoul Project ; (참여: taehykim, eunjilee)
 ![cub3d play image](./cub3d_img.png)
 <br>
 <br>
